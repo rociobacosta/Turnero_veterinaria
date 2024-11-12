@@ -7,43 +7,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BA;
 
 namespace Turnero_veterinaria
 {
     public partial class VerTurnos : Form
     {
-        Turno[] turnos;
-        
-        public VerTurnos(Turno[] listadoturnos)
+        //Turno[] turnos;
+
+        //
+        public Turnos Turnoss = new Turnos();
+        public VerTurnos()
         {
-            turnos = listadoturnos;
+            
             InitializeComponent();
             mostrarTurnos();
 
-            
+            //
+            DGV.DataSource = Turnoss.Lista;
         }
 
         private void mostrarTurnos()
         { 
             
-            for (int i = 0; i < turnos.Length; i++)
-            {
-                if (turnos[i] != null)
-                {
-                    label1.Text += $"Nombre: {turnos[i].Nombre}\n";
-                    label1.Text += $"Especie: {turnos[i].Especie}\n";
-                    label1.Text += $"Fecha: {turnos[i].Fecha:dd/MM/yyyy}\n";
-                    label1.Text += $"Horario: {turnos[i].Horario}\n";
-                    label1.Text += "-----------------------------\n";
-                }
-                
-            }
+            
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        ///////////
+
+   
 
       
     }

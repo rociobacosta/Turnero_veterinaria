@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using BA;
 
 namespace Turnero_veterinaria
 {
     public partial class FormPrincipal : Form
     {
-        public Turno[] listadoDeTurnos = new Turno[19];
-        public int contador = 0;
+        //public Turno[] listadoDeTurnos = new Turno[19];
+        //public int contador = 0;
         public FormPrincipal()
         {
             InitializeComponent();
@@ -22,13 +16,13 @@ namespace Turnero_veterinaria
      
         private void btnCrearTurno_Click(object sender, EventArgs e)
         {
-           FormTurno formularioTurno = new FormTurno(listadoDeTurnos,ref contador);
+           FormTurno formularioTurno = new FormTurno();
            formularioTurno.ShowDialog();
         }
 
         private void btnVerTurnos_Click(object sender, EventArgs e)
         {
-            VerTurnos formularioVerTurnos = new VerTurnos(listadoDeTurnos);
+            VerTurnos formularioVerTurnos = new VerTurnos();
             formularioVerTurnos.ShowDialog();   
         }
     }

@@ -7,20 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BA;
+
 
 namespace Turnero_veterinaria
 {
     public partial class FormTurno : Form
     {
-        Turno[] turnos;
-        int contador;
         
-        public FormTurno(Turno[] listadoturnos, ref int contador)
+        private Turnos Turnosss = new Turnos();   
+        public FormTurno()
         {
-            turnos = listadoturnos;
-            this.contador = contador;
+          
             InitializeComponent();
             txtNombPaciente.Focus();
+            
         }
 
         private bool ValidarCampos()
@@ -57,20 +58,23 @@ namespace Turnero_veterinaria
             return true; 
         }
 
-        private void btnAgregarTurno_Click(object sender, EventArgs e)
+        public void btnAgregarTurno_Click(object sender, EventArgs e)
         {
             if (ValidarCampos())
             {
+                
                 string paciente = txtNombPaciente.Text;
                 string hora = comboHora.SelectedItem.ToString();
                 string especie = txtEspecie.Text;
                 DateTime fechaturno = dateFecha.Value;
-                Turno turnoAgregado = new Turno(paciente, especie, fechaturno, hora);
-                turnos[contador] = turnoAgregado;
-                contador++;
+
+                Turno objTurno = new Turno(paciente, especie, fechaturno,hora);
+                Turnosss.InsertTurno(objTurno);
+
                 MessageBox.Show("Turno agragado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
+       
         }
 
         private void btnVolverAtrasTurno_Click(object sender, EventArgs e)

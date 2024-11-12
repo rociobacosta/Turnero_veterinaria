@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Turnero_veterinaria", "Turnero_veterinaria.csproj", "{6EF56CC1-788F-4F74-9CC9-470B220037AC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BA", "..\BA\BA.csproj", "{10C41F03-4C2B-4ED2-B9DB-3502DD5649AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6EF56CC1-788F-4F74-9CC9-470B220037AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EF56CC1-788F-4F74-9CC9-470B220037AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EF56CC1-788F-4F74-9CC9-470B220037AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10C41F03-4C2B-4ED2-B9DB-3502DD5649AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10C41F03-4C2B-4ED2-B9DB-3502DD5649AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10C41F03-4C2B-4ED2-B9DB-3502DD5649AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10C41F03-4C2B-4ED2-B9DB-3502DD5649AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
