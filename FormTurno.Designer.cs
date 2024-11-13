@@ -117,9 +117,9 @@
             "19:30",
             "20:00",
             "20:30"});
-            this.comboHora.Location = new System.Drawing.Point(560, 274);
+            this.comboHora.Location = new System.Drawing.Point(576, 269);
             this.comboHora.Name = "comboHora";
-            this.comboHora.Size = new System.Drawing.Size(332, 37);
+            this.comboHora.Size = new System.Drawing.Size(316, 37);
             this.comboHora.TabIndex = 9;
             this.comboHora.Text = "Elija un horario de la lista";
             // 

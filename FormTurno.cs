@@ -24,6 +24,7 @@ namespace Turnero_veterinaria
             
         }
 
+
         private bool ValidarCampos()
         {
             if (string.IsNullOrWhiteSpace(txtNombPaciente.Text))
@@ -37,6 +38,15 @@ namespace Turnero_veterinaria
             {
                 MessageBox.Show("Debe ingresar la especie del paciente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtEspecie.Focus();
+                return false;
+            }
+
+            // Verificar si la fecha seleccionada es un sábado o domingo 
+            if (dateFecha.Value.DayOfWeek == DayOfWeek.Saturday || dateFecha.Value.DayOfWeek == DayOfWeek.Sunday)
+            {
+                MessageBox.Show("Los sábados y domingos no están disponibles para reservar turnos.", "Fecha no válida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                dateFecha.Value = DateTime.Now;
                 return false;
             }
 
@@ -66,9 +76,18 @@ namespace Turnero_veterinaria
                 string paciente = txtNombPaciente.Text;
                 string hora = comboHora.SelectedItem.ToString();
                 string especie = txtEspecie.Text;
-                DateTime fechaturno = dateFecha.Value;
+                DateTime fechaturno = dateFecha.Value.Date;
+              
 
-                Turno objTurno = new Turno(paciente, especie, fechaturno,hora);
+                
+
+                if (!Turnosss.EsHorarioDisponible(fechaturno, hora))
+                {
+                    MessageBox.Show("Este horario ya está ocupado. Por favor, elige otro.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                Turno objTurno = new Turno(paciente, especie, fechaturno, hora);
                 Turnosss.InsertTurno(objTurno);
 
                 MessageBox.Show("Turno agragado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -82,6 +101,6 @@ namespace Turnero_veterinaria
             this.Close();
         }
 
-       
+        
     }
 }
